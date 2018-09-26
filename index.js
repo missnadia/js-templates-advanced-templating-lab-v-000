@@ -52,7 +52,6 @@ function getRecipeVals() {
 }
 
 function handlebarsSetup() {
-  //put any handlebars registrations here.
   Handlebars.registerHelper('displayIngredient', function(ingredient) {
     return new Handlebars.SafeString('<li name="ingredientsList">' + ingredient + '</li>')
   })
