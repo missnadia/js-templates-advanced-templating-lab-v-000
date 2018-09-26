@@ -26,7 +26,29 @@ function displayEditForm() {
   for(var i=0;i<ingredientsNodes.length;i++) {
     ingredients.push(ingredientsNodes[i].innerText)
   }
-  
+  var recipe = {
+    name,
+    description,
+    ingredients,
+    submitAction: 'createRecipe()'
+  }
+  var recipeFormTemplate = document.getElementById("recipe-form-template").innerHTML
+  var template = Handlebars.compile(recipeFormTemplate)
+  document.getElementById("main").innerHTML = template(recipe)
+}
+
+function getRecipeVals() {
+  var ingredientsNodes = document.getElementByName("ingredients")
+  var ingredients = []
+  for(var i=0;i<ingredientsNodes.lenth; i++) {
+    if(ingredientsNodes[i].value !== "") {
+      ingredients.push(ingredientsNodes[i].value)
+    }
+  }
+  var name = document.getElementById("name").value
+  var description = document.getElementById("description").value
+  var recipe = {name, ingredients, description}
+  return(recipe)
 }
 
 function init() {
