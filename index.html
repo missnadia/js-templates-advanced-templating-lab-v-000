@@ -17,7 +17,13 @@
         {{> recipeFormPartial}}
       </form>
     </script>
-    
+    <script id="recipe-template" type="text/x-handlebars-template">
+      <article>
+        <header><h2 id="nameHeader">{{name}}</h2></header>
+        <div>{{recipeDetailsPartial}}</div>
+        <footer><a href="#" onclick="displayEditForm();">Edit Recipe</a></footer>
+    </script>
+
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/expect/umd/expect.min.js"></script>
